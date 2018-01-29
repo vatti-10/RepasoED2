@@ -94,6 +94,19 @@ public class IntList extends IntDataStructure{
         }
         return false;
     }
+    
+    @Override
+    public String toString(){
+        if(isEmpty()) return "No data stored on list";
+        String resul = "";
+        IntNode aux = getFirst();
+        while(aux != null){
+            resul = resul + aux.getNumber() + " - ";
+            aux = aux.getRight();
+        }
+        resul = resul.substring(0, resul.length()-3);
+        return resul;
+    }
 
     
     

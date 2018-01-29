@@ -17,14 +17,20 @@ public class Main {
      */
     public static void main(String[] args) {
         IntList lista = new IntList();
+        IntBinaryTree arbin = new IntBinaryTree();
         try {
-            lista.insertInteger(9);
-            lista.insertInteger(5);
-            lista.insertInteger(2);
-            lista.insertInteger(4);
-            lista.insertInteger(3);
-            
-            System.out.println(lista.index(4));
+            arbin.insertInteger(18);
+            arbin.insertInteger(35);
+            arbin.insertInteger(5);
+            arbin.insertInteger(1);
+            arbin.insertInteger(99);
+            arbin.insertInteger(22);
+            arbin.insertInteger(15);
+            arbin.insertInteger(30);
+            System.out.println(arbin.printInOrder());
+            System.out.println(arbin.printPreOrder());
+            System.out.println(arbin.printPostOrder());
+            System.out.println(arbin.getLength());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

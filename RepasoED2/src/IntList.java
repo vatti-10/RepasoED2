@@ -16,25 +16,40 @@ public class IntList extends IntDataStructure{
         setLast(null);        
     }
     
-    public IntNode getLast() {
+    private IntNode getLast() {
         return last;
     }
 
-    public void setLast(IntNode last) {
+    private void setLast(IntNode last) {
         this.last = last;
     }
     
-    public boolean insertInteger(int pNum){
+    public boolean insertInteger(int pNum) throws Exception{
         IntNode newNode = new IntNode(pNum);
-        if(newNode == null){
-            return false;
+        if(findInteger(pNum) != -1){
+            throw new Exception("Number already exists on the list");
         }else{
             if(isEmpty()){
                 setFirst(newNode);
                 setLast(newNode);
-            }else{
-                getLast().setNext(newNode);
+            }else if(getFirst().getNumber() > pNum){
+                newNode.setRight(getFirst());
+                setFirst(newNode);
+            }else if(getLast().getNumber() < pNum){
+                getLast().setRight(newNode);
                 setLast(newNode);
+            }else{
+                boolean found = false;
+                IntNode aux = getFirst();
+                while(!found){
+                    if(aux.getNumber() < pNum && aux.getRight().getNumber() > pNum){
+                        newNode.setRight(aux.getRight());
+                        aux.setRight(newNode);
+                        found = true;
+                    }else{
+                        aux = aux.getRight();
+                    }
+                }                
             }
         }
         setLength(getLength() + 1);   
@@ -44,7 +59,7 @@ public class IntList extends IntDataStructure{
     
     public int findInteger(int pNum){
         IntNode aux = getFirst();
-        for (int i = 0; aux != null; aux = aux.getNext(), i++) {
+        for (int i = 0; aux != null; aux = aux.getRight(), i++) {
             if(aux.getNumber() == pNum) return i;
         }
         return -1;        
@@ -54,7 +69,7 @@ public class IntList extends IntDataStructure{
         if(pIndex > (getLength()-1) || pIndex < 0) throw new Exception("Index out of bounds");
         IntNode aux = getFirst();
         for (int i = 1; i <= pIndex; i++) {
-            aux = aux.getNext();
+            aux = aux.getRight();
         }
         return aux.getNumber();
     }
@@ -63,19 +78,19 @@ public class IntList extends IntDataStructure{
         IntNode last = getFirst();
         IntNode del = getFirst();
         if(del.getNumber() == pNum){
-            setFirst(last.getNext());
+            setFirst(last.getRight());
             setLength(getLength() - 1);
             return true;
         }
-        del = del.getNext();
+        del = del.getRight();
         while(del != null){
             if(del.getNumber() == pNum){
-                last.setNext(del.getNext());
+                last.setRight(del.getRight());
                 setLength(getLength() - 1);
                 return true;
             }
-            del = del.getNext();
-            last = last.getNext();
+            del = del.getRight();
+            last = last.getRight();
         }
         return false;
     }

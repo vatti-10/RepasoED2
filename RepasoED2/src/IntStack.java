@@ -22,7 +22,7 @@ public class IntStack extends IntDataStructure{
             if(isEmpty()){
                 setFirst(newNode);
             }else{
-                newNode.setNext(getFirst());
+                newNode.setRight(getFirst());
                 setFirst(newNode);
             }            
         }    
@@ -33,7 +33,7 @@ public class IntStack extends IntDataStructure{
     public int pop() throws Exception{
         if(isEmpty()) throw new Exception("Stack is empty");
         IntNode toPop = getFirst();
-        setFirst(toPop.getNext());
+        setFirst(toPop.getRight());
         setLength(getLength() - 1);
         return toPop.getNumber();
     }

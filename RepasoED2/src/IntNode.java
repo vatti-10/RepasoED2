@@ -9,12 +9,15 @@
  * @author Jorge Diaz
  */
 public class IntNode {
+
+   
     private int number;
-    private IntNode next;
+    private IntNode right;
+    private IntNode left;
     
     public IntNode(int pNumber){
         setNumber(pNumber);
-        setNext(null);
+        setRight(null);
     }
 
     /**
@@ -34,14 +37,28 @@ public class IntNode {
     /**
      * @return the next
      */
-    public IntNode getNext() {
-        return next;
+    public IntNode getRight() {
+        return right;
     }
 
     /**
-     * @param next the next to set
+     * @param right the next to set
      */
-    public void setNext(IntNode next) {
-        this.next = next;
+    public void setRight(IntNode right) {
+        this.right = right;
+    }
+    
+     /**
+     * @return the left
+     */
+    public IntNode getLeft() {
+        return left;
+    }
+
+    /**
+     * @param left the left to set
+     */
+    public void setLeft(IntNode left) {
+        this.left = left;
     }
 }

@@ -29,7 +29,7 @@ public class IntList extends IntDataStructure{
     public boolean insertInteger(int pNum) throws Exception{
         IntNode newNode = new IntNode(pNum);
         if(findInteger(pNum) != -1){
-            throw new Exception("Number already exists on the list");
+            throw new Exception("El numero ya existe en la lista");
         }else{
             if(isEmpty()){
                 setFirst(newNode);
@@ -68,7 +68,7 @@ public class IntList extends IntDataStructure{
     }
     
     public int index(int pIndex) throws Exception{
-        if(pIndex > (getLength()-1) || pIndex < 0) throw new Exception("Index out of bounds");
+        if(pIndex > (getLength()-1) || pIndex < 0) throw new Exception("Indice fuera del rango");
         IntNode aux = getFirst();
         for (int i = 1; i <= pIndex; i++) {
             aux = aux.getRight();
@@ -99,7 +99,7 @@ public class IntList extends IntDataStructure{
     
     @Override
     public String toString(){
-        if(isEmpty()) return "No data stored on list";
+        if(isEmpty()) return "No hay datos en la lista";
         String resul = "";
         IntNode aux = getFirst();
         while(aux != null){

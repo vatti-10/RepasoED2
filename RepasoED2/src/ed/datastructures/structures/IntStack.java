@@ -33,7 +33,7 @@ public class IntStack extends IntDataStructure{
     }
     
     public int pop() throws Exception{
-        if(isEmpty()) throw new Exception("Stack is empty");
+        if(isEmpty()) throw new Exception("La pila esta vacia");
         IntNode toPop = getFirst();
         setFirst(toPop.getRight());
         setLength(getLength() - 1);

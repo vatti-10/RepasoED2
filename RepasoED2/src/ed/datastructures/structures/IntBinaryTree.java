@@ -15,7 +15,7 @@ public class IntBinaryTree extends IntDataStructure{
         super();        
     }
     
-    public boolean insertInteger(int pNum){
+    public boolean insertInteger(int pNum) {
         if(isSetInteger(pNum)) return false;
         return insertRecursive(getFirst(), pNum);
     }
@@ -61,7 +61,7 @@ public class IntBinaryTree extends IntDataStructure{
     }
     
     public String printPreOrder() throws Exception{
-        if(isEmpty()) throw new Exception("Binary Tree is empty");
+        if(isEmpty()) throw new Exception("El arbol esta vacio");
         return printPreOrderRecursive(getFirst());
     }
 
@@ -71,7 +71,7 @@ public class IntBinaryTree extends IntDataStructure{
     }
     
     public String printInOrder() throws Exception{
-        if(isEmpty()) throw new Exception("Binary Tree is empty");
+        if(isEmpty()) throw new Exception("El arbol esta vacio");
         return printInOrderRecursive(getFirst());
     }
 
@@ -81,7 +81,7 @@ public class IntBinaryTree extends IntDataStructure{
     }
     
     public String printPostOrder() throws Exception{
-        if(isEmpty()) throw new Exception("Binary Tree is empty");
+        if(isEmpty()) throw new Exception("El arbol esta vacio");
         return printPostOrderRecursive(getFirst());
     }
 

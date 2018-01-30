@@ -31,7 +31,7 @@ public class IntQueue extends IntDataStructure{
     }
     
     public int dequeue() throws Exception{
-        if(isEmpty()) throw new Exception("Queue is empty");
+        if(isEmpty()) throw new Exception("La cola está vacia");
         int num = getFirst().getNumber();
         setFirst(getFirst().getRight());
         if(getFirst() == null){
